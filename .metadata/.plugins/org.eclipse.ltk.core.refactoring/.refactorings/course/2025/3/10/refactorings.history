@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename package &apos;com.educandoweb.course.repository&apos; to &apos;com.educandoweb.course.repositories&apos;&#x0D;&#x0A;- Original project: &apos;course&apos;&#x0D;&#x0A;- Original element: &apos;course/src/main/java/com.educandoweb.course.repository&apos;&#x0D;&#x0A;- Renamed element: &apos;course/src/main/java/com.educandoweb.course.repositories&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename package &apos;com.educandoweb.course.repository&apos;" flags="589830" hierarchical="false" id="org.eclipse.jdt.ui.rename.package" input="/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.educandoweb.course.repository" name="com.educandoweb.course.repositories" qualified="false" references="true" stamp="1741356138058" textual="false" version="1.0"/>
+</session>
