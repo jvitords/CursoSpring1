@@ -1,0 +1,24 @@
+package com.educandoweb.course.resource;
+
+import java.util.List;
+
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.educandoweb.course.entities.User;
+import com.educandoweb.course.service.UserService;
+
+@RestController // Indica que esta classe é um controlador REST, ou seja, ela responderá a requisições HTTP retornando JSON ou XML
+@RequestMapping(value = "/users") // Define o caminho base para os endpoints desta classe, ou seja, todas as URLs começarão com "/users"
+public class UserResource {
+	
+	private UserService userService;
+	
+	@GetMapping(value = "/findall") // Indica que este método responde a requisições HTTP do tipo GET em "/users/findallusers".
+	public ResponseEntity<List<User>> encontrarUsuarios() {
+		
+		return userService.findAll();
+	}
+}

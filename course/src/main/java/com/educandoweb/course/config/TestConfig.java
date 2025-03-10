@@ -18,7 +18,7 @@ public class TestConfig implements CommandLineRunner {
 
 	@Autowired 	// Injeta automaticamente o UserRepository, como se ele estivesse instanciando um objeto pra mim
 	private UserRepository userRepository;
-
+	
 	@Override // O método run() será executado automaticamente após a inicialização da aplicação
 	public void run(String... args) throws Exception {
 
