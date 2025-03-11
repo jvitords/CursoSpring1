@@ -17,17 +17,17 @@ import com.educandoweb.course.service.UserService;
 @RequestMapping(value = "/users") // Define o caminho base para os endpoints desta classe, ou seja, todas as URLs começarão com "/users"
 public class UserResource {
 	
-	@Autowired
+	@Autowired // faz a injeção e instancia um "UserService"
 	private UserService userService;
 	
-	@GetMapping(value = "/findall") // Indica que este método responde a requisições HTTP do tipo GET em "/users/findallusers".
+	@GetMapping(value = "/findall") // Indica que este método responde a requisições HTTP do tipo GET e se encontra em "/users/findallusers".
 	public ResponseEntity<List<User>> encontrarUsuarios() {
 		List<User> listUser = userService.findAll();
 		return ResponseEntity.ok().body(listUser);
 	}
 	
-	@GetMapping(value = "/id{id}")
-	public ResponseEntity<User> findById(@PathVariable Long id) {
+	@GetMapping(value = "/id{id}") // Indica que este método responde a requisições HTTP do tipo GET e se encontra em "/users/id+numeroDoId".
+	public ResponseEntity<User> findById(@PathVariable Long id) { // a anotação recebe a variável do Id
 		User user = userService.findById(id);
 		return ResponseEntity.ok().body(user);
 	}
