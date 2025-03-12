@@ -20,7 +20,7 @@ public class UserService {
 	}
 	
 	public User findById(Long id) {
-		Optional<User> user =  userRepository.findById(id);
-		return user.get();
+		Optional<User> user = userRepository.findById(id);
+		return user.get(); // o get retorna o campo filtrado, caso seja null terá exception
 	}
 }

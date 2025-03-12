@@ -2,9 +2,17 @@
 <section name="Workbench">
 	<item key="hasShownOverlayPopupBefore" value="true"/>
 	<section name="java.lang.Class">
-		<item key="replaceBarOpen" value="false"/>
+		<item key="replaceBarOpen" value="true"/>
 		<list key="findhistory">
+			<item value="User"/>
+			<item value="userservice"/>
+			<item value="user"/>
+			<item value="userResource"/>
 			<item value="connection"/>
+		</list>
+		<list key="replacehistory">
+			<item value="Order"/>
+			<item value="order"/>
 		</list>
 	</section>
 </section>

@@ -29,7 +29,7 @@ public class User implements Serializable{
 	
 	@JsonIgnore // serve para não mostrar/ignorar a listas de orders abaixo
 	@OneToMany(mappedBy = "client") // refere que a class User é um para muitos em relação a class order(um user tem varios order)
-	// e o mappedBy = "client" significa que está fazendo referencia ao client(linha 29 da class "Order")
+	// e o "mappedBy = "client"" significa que está fazendo referencia ao client(linha 29 da class "Order")
 	List<Order> orders = new ArrayList<>();
 	
 	public User() {

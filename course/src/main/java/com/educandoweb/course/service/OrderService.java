@@ -23,6 +23,6 @@ public class OrderService {
 	
 	public Order findById(Long id) {
 		Optional<Order> order =  orderRepository.findById(id);
-		return order.get();
+		return order.get(); // o get retorna o campo filtrado, caso seja null terá exception
 	}
 }
