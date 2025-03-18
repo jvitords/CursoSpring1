@@ -14,6 +14,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
@@ -31,12 +32,15 @@ public class Product implements Serializable{
 	private Double price;
 	private String imgUrl;
 	
-	@JsonIgnore
+	//@JsonIgnore
 	@ManyToMany
 	@JoinTable(name = "tb_product_category", joinColumns = @JoinColumn(name = "id_product"), inverseJoinColumns = @JoinColumn(name = "id_category"))
 	// linha acima: em relacionamento de N pra N usamos o "JoinTable" pq ele cria uma tabela a parte com as chaves estrangeiras de cada uma das entidades
 	// name é o nome da tabela que será criada, joinColumns é o nome que damos a chave estrangeira da class "Product" e a inverseColumns é da "Category"
 	private Set<Category> categories = new HashSet<>();
+	
+	@OneToMany(mappedBy = "id.product")
+	private Set<OrderItem> items = new HashSet<>();
 	
 	public Product() {
 	}
@@ -94,6 +98,14 @@ public class Product implements Serializable{
 		return categories;
 	}
 	
+	@JsonIgnore
+	public Set<Order> getOrders() {
+		Set<Order> listItems = new HashSet<>();
+		for(OrderItem item : items) {
+			listItems.add(item.getOrder());
+		}
+		return listItems;
+	}
 
 	@Override
 	public int hashCode() {

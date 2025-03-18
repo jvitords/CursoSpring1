@@ -23,7 +23,6 @@
     <fullyQualifiedTypeName name="jakarta.persistence.Id"/>
     <fullyQualifiedTypeName name="jakarta.persistence.GeneratedValue"/>
     <fullyQualifiedTypeName name="jakarta.persistence.GenerationType"/>
-    <fullyQualifiedTypeName name="java.util.ArrayList"/>
     <fullyQualifiedTypeName name="org.springframework.stereotype.Service"/>
     <fullyQualifiedTypeName name="com.educandoweb.course.repositories.ProductRepository"/>
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestMapping"/>
@@ -37,13 +36,10 @@
     <fullyQualifiedTypeName name="java.util.Optional"/>
     <fullyQualifiedTypeName name="jakarta.persistence.JoinTable"/>
     <fullyQualifiedTypeName name="jakarta.persistence.ManyToMany"/>
-    <fullyQualifiedTypeName name="java.util.Arrays"/>
-    <fullyQualifiedTypeName name="com.fasterxml.jackson.annotation.JsonIgnore"/>
     <fullyQualifiedTypeName name="jakarta.persistence.Embeddable"/>
     <fullyQualifiedTypeName name="java.io.Serializable"/>
     <fullyQualifiedTypeName name="jakarta.persistence.ManyToOne"/>
     <fullyQualifiedTypeName name="jakarta.persistence.JoinColumn"/>
-    <fullyQualifiedTypeName name="java.lang.Integer"/>
     <fullyQualifiedTypeName name="java.lang.Double"/>
     <fullyQualifiedTypeName name="com.educandoweb.course.entities.Product"/>
     <fullyQualifiedTypeName name="jakarta.persistence.Entity"/>
@@ -53,8 +49,13 @@
     <fullyQualifiedTypeName name="java.util.HashSet"/>
     <fullyQualifiedTypeName name="jakarta.persistence.OneToMany"/>
     <fullyQualifiedTypeName name="com.educandoweb.course.entities.OrdemItem"/>
-    <fullyQualifiedTypeName name="com.educandoweb.course.entities.pk.OrderItemPK"/>
-    <fullyQualifiedTypeName name="java.lang.Long"/>
     <fullyQualifiedTypeName name="com.educandoweb.course.entities.Order"/>
+    <fullyQualifiedTypeName name="com.educandoweb.course.repository.OrderItemRepository"/>
+    <fullyQualifiedTypeName name="java.util.ArrayList"/>
+    <fullyQualifiedTypeName name="java.util.Arrays"/>
+    <fullyQualifiedTypeName name="java.lang.Integer"/>
+    <fullyQualifiedTypeName name="java.lang.Long"/>
     <fullyQualifiedTypeName name="com.educandoweb.course.entities.OrderItem"/>
+    <fullyQualifiedTypeName name="com.educandoweb.course.entities.pk.OrderItemPK"/>
+    <fullyQualifiedTypeName name="com.fasterxml.jackson.annotation.JsonIgnore"/>
 </qualifiedTypeNameHistroy>
