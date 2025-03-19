@@ -29,6 +29,12 @@ public class OrderItem {
 		this.price = price;
 	}
 	
+	public Double getSubtotal() {
+		Double valor = 0.0;
+		valor = price * quantity;
+		return valor;
+	}
+	
 	public Product getProduct() {
 		return id.getProduct();
 	}

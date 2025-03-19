@@ -99,7 +99,7 @@ public class Product implements Serializable{
 	}
 	
 	@JsonIgnore
-	public Set<Order> getOrders() {
+	public Set<Order> getOrders() { // com isso consigo retornar em Json(quando o Jackson for serializar) os pedidos sem mostrar o OrderItem
 		Set<Order> listItems = new HashSet<>();
 		for(OrderItem item : items) {
 			listItems.add(item.getOrder());
