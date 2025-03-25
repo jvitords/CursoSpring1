@@ -1,0 +1,16 @@
+package com.educandoweb.course.resource.exceptions;
+
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.ControllerAdvice;
+import org.springframework.web.bind.annotation.ExceptionHandler;
+
+import com.educandoweb.course.service.exceptions.ResourceNotFoundException;
+
+@ControllerAdvice
+public class ResourceExceptionHandler {
+
+	@ExceptionHandler(ResourceNotFoundException.class)
+	public ResponseEntity<ResourceNotFoundException> resourceNotFound(){
+		
+	}
+}

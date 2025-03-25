@@ -1,0 +1,57 @@
+package com.educandoweb.course.service;
+
+import java.util.List;
+import java.util.Optional;
+import java.util.ResourceBundle;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.EmptyResultDataAccessException;
+import org.springframework.stereotype.Service;
+
+import com.educandoweb.course.entities.User;
+import com.educandoweb.course.repository.UserRepository;
+import com.educandoweb.course.service.exceptions.ResourceNotFoundException;
+import com.fasterxml.jackson.databind.ser.std.StdArraySerializers.LongArraySerializer;
+
+@Service
+public class UserService {
+	
+	@Autowired
+	private UserRepository userRepository;
+	
+	public List<User> findAll() {
+		return userRepository.findAll();
+	}
+	
+	public User findById(Long id) {
+		Optional<User> user = userRepository.findById(id);
+		return user.orElseThrow(() -> new ResourceNotFoundException(id));
+	}
+	
+	public void insertUser(User user) {
+		userRepository.save(user);
+	}
+	
+	public void deleteUser(Long id) {
+		try {
+			userRepository.deleteById(id);
+		} 
+		catch (EmptyResultDataAccessException e) {
+			e.printStackTrace();
+		}
+		
+	}
+
+	// encontrar o user com esse id e atualizar pelo user que foi passado no argumento
+	public User updateUser(Long id, User obj) {
+		User user = userRepository.getReferenceById(id);
+		updateInfoUser(user, obj);
+		return userRepository.save(user);
+	}
+	
+	private void updateInfoUser(User user, User newUser) {
+		user.setName(newUser.getName());
+		user.setEmail(newUser.getEmail());
+		user.setPhone(newUser.getPhone());
+	}
+}

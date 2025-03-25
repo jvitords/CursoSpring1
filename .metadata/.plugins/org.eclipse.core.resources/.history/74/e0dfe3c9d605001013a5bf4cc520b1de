@@ -1,0 +1,46 @@
+package com.educandoweb.course.resource;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
+
+import com.educandoweb.course.entities.User;
+import com.educandoweb.course.service.UserService;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+
+
+@RestController // Indica que esta classe é um controlador REST, ou seja, ela responderá a requisições HTTP retornando JSON ou XML
+@RequestMapping(value = "/users") // Define o caminho base para os endpoints desta classe, ou seja, todas as URLs começarão com "/users"
+public class UserResource {
+	
+	@Autowired // faz a injeção e instancia um "UserService"
+	private UserService userService;
+	
+	@GetMapping(value = "/findall") // Indica que este método responde a requisições HTTP do tipo GET e se encontra em "/users/findallusers".
+	public ResponseEntity<List<User>> encontrarUsuarios() {
+		List<User> listUser = userService.findAll();
+		return ResponseEntity.ok().body(listUser);
+	}
+	
+	@GetMapping(value = "/id{id}") // Indica que este método responde a requisições HTTP do tipo GET e se encontra em "/users/id+numeroDoId".
+	public ResponseEntity<User> findById(@PathVariable Long id) { // a anotação recebe a variável do Id
+		User user = userService.findById(id);
+		return ResponseEntity.ok().body(user);
+	}
+	
+	@PostMapping // por ser POST ele espera informações no corpo da requisição e irá fazer os comandos abaixo
+	public ResponseEntity<User> postUser(@RequestBody User user) { 
+		// a anotação acima pega o que foi recebido da requisição POST e extrai os dados criando um objeto User
+		userService.insertUser(user); // pega o que foi recebido do corpo da requisição, dps a anotação extrai os dados criando um objeto User e salva no BD
+		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(user.getId()).toUri();
+		return ResponseEntity.created(null).body(user); // retornar resosta 201 pra requisição
+	}
+}

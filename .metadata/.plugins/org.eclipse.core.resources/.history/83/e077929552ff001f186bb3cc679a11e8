@@ -1,8 +1,0 @@
-package com.educandoweb.course.resource;
-
-import org.springframework.web.bind.annotation.RequestMapping;
-
-@RequestMapping(value = "/categories")
-public class RepositoryResource {
-
-}

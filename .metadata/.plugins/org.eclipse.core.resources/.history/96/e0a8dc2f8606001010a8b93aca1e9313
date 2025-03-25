@@ -1,0 +1,12 @@
+package com.educandoweb.course.service.exceptions;
+
+import jakarta.persistence.Id;
+
+public class ResourceNotFoundException extends RuntimeException{
+
+	private static final long serialVersionUID = 1L;
+
+	public ResourceNotFoundException(Object id) {
+		super("Exception lançada pois  o ID '" + id + "' não foi encontrado!");
+	}
+}
